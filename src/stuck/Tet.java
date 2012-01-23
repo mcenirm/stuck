@@ -22,4 +22,28 @@ public class Tet {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder b = new StringBuilder();
+        for (boolean[] a : squares) {
+            for (boolean c : a) {
+                b.append(c ? 'X' : ' ');
+            }
+            b.append('\n');
+        }
+        return b.toString();
+    }
+
+    public int[] getColumnSums() {
+        int[] sums = new int[squares[0].length];
+        for (int row = 0; row < squares.length; row++) {
+            for (int column = 0; column < squares[row].length; column++) {
+                if (squares[row][column]) {
+                    sums[column]++;
+                }
+            }
+        }
+        return sums;
+    }
 }
