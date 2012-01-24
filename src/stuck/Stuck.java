@@ -1,6 +1,6 @@
 package stuck;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class Stuck {
 
@@ -8,11 +8,11 @@ public class Stuck {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Tet[] them = {Tet.I, Tet.J, Tet.L, Tet.O, Tet.S, Tet.T, Tet.Z};
-        for (Tet tet : them) {
-            System.out.println(tet);
-            int[] sums = tet.getColumnSums();
-            System.out.println(Arrays.toString(sums));
-        }
+        Piece[] pieces = {Piece.T, Piece.Z, Piece.J, Piece.O, Piece.I};
+        int[] goal = {2, 3, 4, 2, 3, 2};
+        Attempt blank = new Attempt(goal, pieces, new Move[pieces.length]);
+        System.out.println(blank);
+        List<Attempt> solutions = blank.solve();
+        System.out.println(solutions);
     }
 }
