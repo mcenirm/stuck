@@ -56,7 +56,7 @@ public class Attempt {
                 for (int sumsIndex = 0; sumsIndex < piece.getSums().length; sumsIndex++) {
                     int[] sums = piece.getSums(sumsIndex);
                     int maxPosition = goal.length - sums.length;
-                    for (int position = 0; position < maxPosition; position++) {
+                    for (int position = 0; position <= maxPosition; position++) {
                         int[] subGoal = Arrays.copyOf(goal, goal.length);
                         for (int i = 0; i < sums.length; i++) {
                             subGoal[i + position] -= sums[i];
