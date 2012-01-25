@@ -1,5 +1,7 @@
 package stuck;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Stuck {
@@ -14,7 +16,21 @@ public class Stuck {
         System.out.println(blank);
         List<Attempt> solutions = blank.solve();
         for (Attempt solution : solutions) {
-            System.out.println(solution);
+            int size = solution.getSize();
+            ArrayList<String> pieceStrings = new ArrayList<String>();
+            for (int i = 0; i < size; i++) {
+                Piece piece = solution.getPiece(i);
+                Move move = solution.getMove(i);
+                if (null != move && !move.isEmpty()) {
+                    StringBuilder b = new StringBuilder();
+                    b.append(piece.getName());
+                    b.append(Arrays.toString(piece.getSums(move.sumsIndex)));
+                    b.append('@');
+                    b.append(move.position);
+                    pieceStrings.add(b.toString());
+                }
+            }
+            System.out.println("Solution: " + pieceStrings);
         }
     }
 }

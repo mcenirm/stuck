@@ -17,6 +17,18 @@ public class Attempt {
         assert pieces.length == moves.length;
     }
 
+    public int getSize() {
+        return pieces.length;
+    }
+
+    public Piece getPiece(int index) {
+        return pieces[index];
+    }
+
+    public Move getMove(int index) {
+        return moves[index];
+    }
+
     public boolean isMetGoal() {
         boolean metGoal = true;
         for (int total : goal) {
